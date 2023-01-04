@@ -1,0 +1,26 @@
+node {
+      stage("Git Clone"){
+
+        git branch: 'main', url: 'https://github.com/jsilaparasetti/claims.git'
+    }
+      
+  stage("build"){
+   withMaven {
+      sh "mvn clean verify"
+    }
+  }
+   
+//     stage("Docker build"){
+//     sh 'docker build -t apurva09/claims_image:latest -f Dockerfile .'
+//         sh 'docker image ls'
+//     }
+// withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'apurva09', passwordVariable: 'password')]) {
+
+// 	}
+//     stage("Pushing Image to Docker Hub"){
+	  
+//         sh 'docker tag 518b08410256 apurva09/claims.api:latest'
+// 		sh 'echo $dockerhub PSW | docker login -u $dockerhub_apurva09 --password-stdin'
+// 	  sh 'docker push apurva09/claims.api:latest'
+//     }
+}
