@@ -5,10 +5,8 @@ node {
     }
       
   stage("build"){
-	  steps{ sh 'mvn clean verify'
-	     }
-  
-  }
+	 sh 'mvn clean verify'
+   }
    
 //     stage("Docker build"){
 //     sh 'docker build -t apurva09/claims_image:latest -f Dockerfile .'
