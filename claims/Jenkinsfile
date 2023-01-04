@@ -5,9 +5,9 @@ node {
     }
       
   stage("build"){
-   withMaven {
-      sh "mvn clean verify"
-    }
+	  steps{ sh 'mvn clean verify'
+	     }
+  
   }
    
 //     stage("Docker build"){
