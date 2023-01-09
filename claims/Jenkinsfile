@@ -30,9 +30,12 @@ pipeline {
     maven 'local_mav' 
   }
   stages {
+	stage("Git Clone"){
+		git branch: 'main', url: 'https://github.com/Mansi0899/Jenkins_Demo.git'
+	}
     stage ('Build') {
       steps {
-        sh 'mvn clean package'
+        bat 'mvn clean package'
       }
     }
   }
