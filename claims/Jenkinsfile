@@ -1,13 +1,13 @@
-node {
-      stage("Git Clone"){
+// node {
+//       stage("Git Clone"){
 
-        git branch: 'main', url: 'https://github.com/Mansi0899/Jenkins_Demo.git'
-    }
+//         git branch: 'main', url: 'https://github.com/Mansi0899/Jenkins_Demo.git'
+//     }
       
-  stage("build"){
+//   stage("build"){
 // 	 sh 'mvn install'
-	  sh 'mvn clean install -U'
-   }
+// 	  sh 'mvn clean install -U'
+//    }
    
 //     stage("Docker build"){
 //     sh 'docker build -t apurva09/claims_image:latest -f Dockerfile .'
@@ -22,4 +22,17 @@ node {
 // 		sh 'echo $dockerhub PSW | docker login -u $dockerhub_apurva09 --password-stdin'
 // 	  sh 'docker push apurva09/claims.api:latest'
 //     }
-}
+// }
+
+pipeline{
+	agent any
+	tools{
+		maven "MAVEN"
+		jdk "JDK"
+	}
+	stages{
+		stage("Build"){
+			sh 'mvn clean install'
+		}
+	}
+}	
