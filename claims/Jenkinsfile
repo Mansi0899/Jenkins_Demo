@@ -5,7 +5,8 @@ node {
     }
       
   stage("build"){
-	 sh 'mvn install'
+// 	 sh 'mvn install'
+	   echo 'This is a sample stage'
    }
    
 //     stage("Docker build"){
