@@ -32,7 +32,7 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
-        sh 'mvn clean compile package'
+        bat 'mvn clean compile package'
       }
     }
   }
